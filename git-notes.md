@@ -1,6 +1,6 @@
-% Git notes
-% Dino Morelli <dino@ui3.info>
-% 2018-Nov-27
+Title: Git notes
+Author: Dino Morelli <dino@ui3.info>
+Date: 2018-Nov-27
 
 
 ## Git Basics
