@@ -1,19 +1,14 @@
-Title: Git notes
-Author: Dino Morelli <dino@ui3.info>
-Date: 2018-Nov-27
+# Git Basics
 
 
-## Git Basics
-
-
-### Examining changed files
+## Examining changed files
 
     $ git status
     $ git diff
     $ git diff --cached  # Include staged items
 
 
-### Committing changes
+## Committing changes
 
 In git, it's a two-step process of adding changes to the index and then committing
 
@@ -41,7 +36,7 @@ ONLY works in git if amending *last* commit
 Also, as with ANY source control, NEVER do this to a commit that has been pushed anywhere. Very bad!
 
 
-### Viewing the commit log
+## Viewing the commit log
 
     $ git log
     $ git log --name-only
@@ -60,7 +55,7 @@ That one is so useful, add an alias for it to your `~/.gitignore` alias block
       lg = log --oneline --graph --all
 
 
-#### More git log variations
+### More git log variations
 
     $ git log --pretty=oneline
     $ git log --pretty=format:"%h %ad | %s%d [%an]"
@@ -76,14 +71,14 @@ Once that hist log output is defined, can do things like see all tags in the out
     $ git hist master --all
 
 
-#### git show
+### git show
 
 View a file in a different branch without changing branches
 
     $ git show BRANCH:FILE
 
 
-### Restoring working copy files to last committed state
+## Restoring working copy files to last committed state
 
 **WARNING** This section is sketchy, needs more research
 
@@ -100,7 +95,7 @@ undo something that's in-progress (restore working copy, un-stage
 something, etc..)
 
 
-### Going back to a prior state of the repo
+## Going back to a prior state of the repo
 
 **WARNING** This section is sketchy, needs more research
 
@@ -112,12 +107,12 @@ after this, later commits are still in the repo. Not really sure
 how this works.
 
 
-### Working with remotes
+## Working with remotes
 
     $ git remote -v               # Show all remotes
 
 
-### Tagging
+## Tagging
 
 To make a tag, use -a or you get an unannotated tag. This is more
 like the tag we understand from other RCS systems.
@@ -212,7 +207,7 @@ View which remote branch each of the local branches are tracking
     $ git branch -vv
 
 
-#### Creating an orphan branch
+### Creating an orphan branch
 
 These instructions are incomplete, need to try them out some more.
 Also, see [this](https://docwhat.org/git-tip-empty-branch/)
@@ -258,9 +253,9 @@ Push that local-only branch to the remote for the first time
     $ git push --set-upstream origin BRANCHNAME
 
 
-### Merging
+## Merging
 
-#### Aborting a merge with conflicts:
+### Aborting a merge with conflicts:
 
     $ git merge --abort
 
@@ -268,7 +263,7 @@ or, if your git is old
 
     $ git reset --merge
 
-#### dry-run
+### dry-run
 
     $ git merge --no-commit --no-ff
 
@@ -476,3 +471,9 @@ This work can now be pushed back to the remote, must be forced:
     $ git push -f
 
 Instruct all team members to discard their cloned dirs of this repo and clone again. The history has been rewritten. This is very important, **do not blow off communicating this to the team!**
+
+
+## About this document
+
+Author: Dino Morelli <dino@ui3.info>  
+Date: 2018-Nov-27
