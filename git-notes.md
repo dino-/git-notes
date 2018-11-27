@@ -415,6 +415,8 @@ Commit that foo/.gitignore and you're all set
 
 ### Grafting older changes onto a newer repo.
 
+**WARNING** This section is VERY out-of-date, needs research/rewrite
+
 Somebody didn't clone or fast-import! You've got this situation:
 
     dev/
