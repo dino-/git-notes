@@ -62,29 +62,34 @@ Also, as with ANY source control, NEVER do this to a commit that has been pushed
 
 A useful branch graph view
 
-    $ git log --oneline --graph --all
+    $ git log --oneline --graph --branches
 
-That one is so useful, add an alias for it to your `~/.gitignore` alias block
+That one is so useful, add an alias for it to your `~/.gitconfig` alias block
 
     [alias]
       ... other aliases you may have ...
-      lg = log --oneline --graph --all
+      lg = log --oneline --graph --branches
+
+Add `--all` to include the stash refs
+
+    $ git log --oneline --graph --branches --all
+    $ git lg --all
 
 
 ### More git log variations
 
     $ git log --pretty=oneline
-    $ git log --pretty=format:"%h %ad | %s%d [%an]"
+    $ git log --pretty=format:"%h %ad | %s%d [%an]" --date=iso
 
 Can put this last one in .gitconfig [alias] block
 
     [alias]
       ... other aliases you may have ...
-      hist = log --pretty=format:"%h %ad | %s%d [%an]"
+      hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --date=iso
 
-Once that hist log output is defined, can do things like see all tags in the output
+Additional switches also work to see more things
 
-    $ git hist master --all
+    $ git hist --branches --all
 
 
 ### git show
