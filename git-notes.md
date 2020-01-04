@@ -6,6 +6,22 @@
     $ git status
     $ git diff
     $ git diff --cached  # Include staged items
+    $ git diff --staged  # Include staged items, synonum for --cached
+
+
+## Getting changes from a remote
+
+Normally it's a simple `git pull origin master` or whatever branch you want. If
+the upstream was set, `git pull` will suffice.
+
+To pull from another non-server repo on another system on the network, while in
+the local repo directory:
+
+    $ git pull user@host:/path/to/repo
+
+This is useful in cases where changes were made by a user other than the one
+who can push back to a server. Or collaborating with people and sharing work
+without going through the server.
 
 
 ## Committing changes
@@ -472,10 +488,12 @@ This work can now be pushed back to the remote, must be forced:
 
     $ git push -f
 
-Instruct all team members to discard their cloned dirs of this repo and clone again. The history has been rewritten. This is very important, **do not blow off communicating this to the team!**
+Instruct all team members to discard their cloned dirs of this repo and clone
+again. The history has been rewritten. This is very important, **do not blow
+off communicating this to the team!**
 
 
 ## About this document
 
 Author: Dino Morelli <dino@ui3.info>  
-Date: 2018-Nov-27
+Date: 2019-Dec-20
