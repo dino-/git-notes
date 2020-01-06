@@ -128,6 +128,13 @@ after this, later commits are still in the repo. Not really sure
 how this works.
 
 
+## Removing untracked files
+
+To recursively remove all untracked files and directories
+
+    $ git clean -df
+
+
 ## Working with remotes
 
     $ git remote -v               # Show all remotes
