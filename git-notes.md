@@ -338,7 +338,8 @@ To update without changing the current directory
 
     $ git --git-dir project.git remote update
 
-Also useful, export the entire repo as a single file
+Also useful, export the entire repo as a single file. This can be done with any
+clone, not just a mirror clone.
 
     $ cd project.git
     $ git bundle create ../project.bundle --all
