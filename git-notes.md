@@ -91,6 +91,10 @@ Additional switches also work to see more things
 
     $ git hist --branches --all
 
+List all authors to have committed to this repo
+
+    $ git log --all --format='%cN <%cE>' | sort -u
+
 
 ### git show
 
