@@ -352,6 +352,14 @@ clone, not just a mirror clone.
 ## Git Tools
 
 
+### Stashing
+
+Apply a single file from a stash. The FILENAME working will be overwritten by
+what's in the stash.
+
+    $ git checkout stash@{0} -- <FILENAME>
+
+
 ### Rewriting History
 
 
