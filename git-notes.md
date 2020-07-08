@@ -102,6 +102,15 @@ View a file in a different branch without changing branches
 
     $ git show BRANCH:FILE
 
+View a file at a different ref
+
+    $ git show REF:FILE
+
+examples
+
+    $ git show HEAD^:foo/bar/baz    # Prior commit
+    $ git show 3d8a55f:foo/bar/baz  # Specific commit
+
 
 ## Restoring working copy files to last committed state
 
