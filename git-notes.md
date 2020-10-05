@@ -416,6 +416,15 @@ May want to add the file to `.gitignore` now. When you're sure everything is coo
 And, as with all rebase-y tasks, be careful if other people have used the repo.
 
 
+### cherry pick
+
+Cherry picking a range inclusive. If you want to cherry pick all commits
+between an older commit and a newer one and include the starting one, it's not
+obvious. Need the `^` like this:
+
+    $ git cherry-pick A^..B
+
+
 ## Customizing Git
 
 
