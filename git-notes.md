@@ -358,6 +358,24 @@ clone, not just a mirror clone.
     $ git bundle create ../project.bundle --all
 
 
+## Sending some (but not all) commits somewhere in a bundle
+
+In the source repo
+
+    $ git bundle create ../foo.bundle src-branchname
+
+This will get all unpushed commits in this branch. Now, send the file
+`foo.bundle` somewhere.
+
+In the destination repo, you can verify this looks ok to git before proceeding
+
+    $ git bundle verify ../foo.bundle
+
+And then pull it much like any other remote
+
+    $ git pull ../foo.bundle dest-branchname[:src-branchname]
+
+
 ## Git Tools
 
 
