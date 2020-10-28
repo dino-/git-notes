@@ -384,7 +384,12 @@ clone, not just a mirror clone.
 Apply a single file from a stash. The FILENAME working will be overwritten by
 what's in the stash.
 
+    $ git checkout [<STASHID>] -- <FILENAME>
     $ git checkout stash@{0} -- <FILENAME>
+
+To list the stashes with the date they were made
+
+    $ git stash list --date=local
 
 
 ### Rewriting History
