@@ -332,14 +332,25 @@ or, if your git is old
 
 ### Get a solo git repo ready for sharing on your own server
 
-Assuming you have a server with a git user that has your user in authorized_keys
+There are many ways to set up shared repos on your own server. The way I've
+been doing it is this:
+
+- Create a user `git` whose default group is also `git` on the system. This
+  user will own the entire filesystem tree directly above the repositories.
+- Any users on the local system where this is happening will need to be added
+  to the `git` group
+- For users not on the local system, you'll want to add public ssh keys to the
+  `git` user's `authorized_keys` file
+
+Now, to create a new repository from another system
 
     $ cd NEWREPO
-    $ ssh git@server git init --bare /repos/path/NEWREPO.git
+    $ ssh git@server git init --bare --shared=group /repos/path/NEWREPO.git
+    $ ssh git@server chown -R git:git /repos/path/NEWREPO.git
     $ git remote add origin git@server:/repos/path/NEWREPO.git
     $ git push -u origin master
 
-Not sure if this is enough for tags and things, probably not
+Not sure if this is enough to get all tags and things, probably not
 
 
 ### Copy a git repo from one server to another
