@@ -312,6 +312,29 @@ Push that local-only branch to the remote for the first time
     $ git push --set-upstream origin BRANCHNAME
 
 
+### Renaming the default branch
+
+First, change the local repository
+
+    $ git branch -m master main
+    $ git push -u origin main
+
+Now remove the `master` branch on the remote
+
+    $ git push origin --delete master
+
+If this fails for github with a message like
+
+     ! [remote rejected] master (refusing to delete the current branch: refs/heads/master)
+    error: failed to push some refs to 'foo.com:bar-/baz.git
+
+You will first need to change the default branch. In the repository web page:
+Settings -> Branches -> Default branch section. Click the two-arrows icon to
+the right of the current default branch and select the branch to be the new
+default. You can then delete the other branch from here or issue the above
+command again on the local system.
+
+
 ## Merging
 
 ### Aborting a merge with conflicts:
