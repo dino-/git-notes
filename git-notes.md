@@ -6,7 +6,7 @@
     $ git status
     $ git diff
     $ git diff --cached  # Include staged items
-    $ git diff --staged  # Include staged items, synonum for --cached
+    $ git diff --staged  # Include staged items, synonym for --cached
 
 
 ## Getting changes from a remote
@@ -145,6 +145,16 @@ A lot of this reset/checkout business I find confusing in Git. Often
 you can use the `git status` output to coach you on what to do to
 undo something that's in-progress (restore working copy, un-stage
 something, etc..)
+
+
+## Reverting
+
+To revert multiple commits as a unit, do them separately like this
+
+    $ git revert --no-commit D
+    $ git revert --no-commit C
+    $ git revert --no-commit B
+    $ git commit -m "the commit message for all of them"
 
 
 ## Going back to a prior state of the repo
