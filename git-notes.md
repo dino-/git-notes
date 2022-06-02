@@ -227,6 +227,16 @@ Removing a tag
     $ git tag -d release01                 # The local tag
     $ git push origin --delete release01   # The remote tag
 
+If the tags you have in your local clone get very out-of-date with what's on
+the remote, clean them up like this:
+
+    $ git tag -l | xargs git tag -d
+    $ git fetch --tags
+
+An alternative way to do this if there aren't very many tags
+
+    $ git tag -d $(git tag -l) && git fetch -t
+
 
 ## Git Branching
 
