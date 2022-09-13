@@ -135,6 +135,7 @@ examples
 **WARNING** This section is sketchy, needs more research
 
     $ git reset --soft   # Preserves working copy changes
+    $ git reset          # Also preserves working copy, --soft is default
     $ git reset --hard   # Destroys working copy changes
     $ git checkout FILE  # I think also destroys working copy changes
 
@@ -145,6 +146,12 @@ A lot of this reset/checkout business I find confusing in Git. Often
 you can use the `git status` output to coach you on what to do to
 undo something that's in-progress (restore working copy, un-stage
 something, etc..)
+
+Sometimes files end up staged but you want ALL of them to be unstaged (and you
+DO NOT WANT TO LOSE THE CHANGES), AND there are too many to list individually.
+To do this, simply:
+
+    $ git reset
 
 
 ## Reverting
