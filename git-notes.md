@@ -383,6 +383,41 @@ FIXME May still need a rebase in here somewhere, need to test this
     $ git pull origin main:main --rebase
 
 
+### Recovering branches and stashes from a damaged repo
+
+I've had a a nix + cabal Haskell repo get into a state where I can't `cabal
+build` any longer. And once this happened with corruption to git commit hooks
+so that commits were no longer possible. Whatever the reason, suppose you can
+no longer use the clone you have and must clone again into a new directory. The
+problem is, what about local-only branches and stashes in the broken clone?
+Here are some tips for moving them over.
+
+Make your new clone
+
+    $ git clone ... newclone
+    $ cd newclone
+    $ git add remote broken ../oldclone  # relative dirs are allowed here
+    $ git fetch broken
+
+You can now switch to the branches in broken to use them in newclone
+
+    $ git switch branch-in-broken
+
+Or, if there's a conflict with branch names
+
+    $ git checkout --track broken/branch-in-broken
+
+To recover stashes from the broken repo, you can use the tedious process of
+patch files.
+
+    $ cd ../oldclone
+    $ git stash show -p stash@{..} > patchfile
+    $ cd ../newclone
+    $ git switch somebranch
+    $ git apply ../oldclone/patchfile
+    $ git stash push -m '...'
+
+
 ## Merging
 
 ### Aborting a merge with conflicts:
@@ -644,4 +679,4 @@ off communicating this to the team!**
 ## About this document
 
 Author: Dino Morelli <dino@ui3.info>  
-Date: 2020-Jan-04
+Date: 2022-Sep-13
