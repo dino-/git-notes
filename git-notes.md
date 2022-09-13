@@ -355,6 +355,27 @@ default. You can then delete the other branch from here or issue the above
 command again on the local system.
 
 
+### pulling TO another branch
+
+Suppose you have a branch `feature` that was made from `main`. You have uncommitted changes in `feature` but you want to bring in new changes to `main` by the team. It goes like this:
+
+    $ git stash push
+    $ git switch main
+    $ git pull
+    $ git switch feature
+    $ git stash pop
+
+This is of course a pain in the ass. But it can be done in one shot and without
+disrupting `feature` with fetch. Again, on branch `feature` with the
+uncommitted changes):
+
+    $ git fetch origin main:main
+
+FIXME May still need a rebase in here somewhere, need to test this
+
+    $ git pull origin main:main --rebase
+
+
 ## Merging
 
 ### Aborting a merge with conflicts:
