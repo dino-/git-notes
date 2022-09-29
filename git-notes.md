@@ -153,6 +153,12 @@ To do this, simply:
 
     $ git reset
 
+If your local branch has diverged from the remote and you want to reset local
+to the remote:
+
+    $ git switch branchname
+    $ git reset --hard someremote/branchname
+
 
 ## Reverting
 
