@@ -41,6 +41,11 @@ And then pull it much like any other remote
 
     $ git pull ../foo.bundle dest-branchname[:src-branchname]
 
+The bundle can be used to create a new clone too, which is useful if you need
+to understand more about what's in it
+
+    $ git clone foo.bundle new-dir-name
+
 
 ## Committing changes
 
