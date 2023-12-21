@@ -623,6 +623,21 @@ Make a file foo/.gitignore containing this:
 Commit that foo/.gitignore and you're all set
 
 
+### Changing the author info on an entire branch or repo
+
+This will rewrite every commit, keeping everything including the date/time
+stamps and only changing the author info. They will all have new hashes, so
+beware doing this to branches that have been pushed.
+
+For all commits up to and including the root
+
+    $ git rebase --root --exec 'git commit --amend --no-edit --author "First Last <foo@bar.baz>"'
+
+Or from some point onwards
+
+    $ git rebase <after-this-commit> --exec 'git commit --amend --no-edit --author "First Last <foo@bar.baz>"'
+
+
 ### Grafting older changes onto a newer repo.
 
 **WARNING** This section is VERY out-of-date, needs research/rewrite
@@ -690,4 +705,4 @@ off communicating this to the team!**
 ## About this document
 
 Author: Dino Morelli <dino@ui3.info>  
-Date: 2022-Sep-13
+Date: 2023-Dec-21
